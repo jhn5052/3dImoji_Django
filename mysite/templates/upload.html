@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>이모지 만들기</title>
+    <style>
+        @import "compass/css3";
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        html {
+            font-family: futura, sans-serif;
+            color: #434343;
+            background-color: #333;
+        }
+        
+        form {
+            font-size: 1em;
+            background-color: #eee;
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            text-align: center;
+            padding: 1.6em;
+            box-shadow: 0 0 50px #111;
+        }
+        
+        label {
+            display: block;
+            font-size: 1.6em;
+            margin-bottom: 0.6em;
+        }
+        
+        button {
+            @include appearance(none);
+            border: none;
+            font-size: 1.6em;
+            padding: 0.4em 1.6em;
+            background-color: transparent;
+            border: 3px solid #09c;
+            color: #09c;
+            transition: all .2s;
+        }
+        
+        .file-info {
+            display: block;
+            clear: both;
+            margin-top: 0.6em;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data" novalidate>
+        <label for="field-image"><span>정면으로 나온 사진을 넣어주세요!</span></label><br>
+        <div class="file-upload">
+            {% csrf_token %} {{ form.as_p }}
+            <br><br>
+            <button type="submit">확인하러 가기</button>
+            <span class="file-info"></span>
+        </div>
+    </form>
+
+
+</body>
+
+</html>

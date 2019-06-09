@@ -1,0 +1,64 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>이모지 확인하기</title>
+    <style>
+        html {
+            background: rgba(200, 200, 200, 0.3);
+            backface-visibility: hidden;
+        }
+        
+        h1 {
+            width: 100%;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            font-weight: 100;
+            padding-top: 20px;
+            color: rgba(200, 200, 200, 1)
+        }
+        
+        div {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            position: relative;
+        }
+        
+        div:after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .banner {
+            font-family: 'Noto Sans KR', sans-serif;
+            text-align: center;
+            padding: 1em 0.5em;
+            background: #fab1a0;
+            font-weight: 600;
+            /* 	color: #e17055 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="banner">
+        이모지 다시 확인하러 가기 <a href="{% url 'upload' %}" target="_blank">here</a>
+    </aside>
+    <h1>나의 이모지</h1>
+    <div><img width="300px" height="350px;" src="{% static '/Final_output/FinalResult.jpg' %}"></div>
+</body>
+
+</html>
